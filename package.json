@@ -1,0 +1,37 @@
+{
+  "name": "amk",
+  "version": "0.0.1",
+  "description": "no frills API server using express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heinrich10/amk.git"
+  },
+  "keywords": [
+    "express",
+    "co"
+  ],
+  "author": "heinrich10",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/heinrich10/amk/issues"
+  },
+  "homepage": "https://github.com/heinrich10/amk#readme",
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "knex": "^0.12.6",
+    "lodash": "^4.17.2",
+    "moment": "^2.17.0",
+    "sqlite3": "^3.1.8"
+  },
+  "devDependencies": {
+    "istanbul": "^0.4.5",
+    "mocha": "^3.2.0",
+    "sinon": "^1.17.6"
+  }
+}
