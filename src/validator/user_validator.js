@@ -1,4 +1,3 @@
-'use strict'
 
 const AmkError = require('../../lib/amk_error');
 

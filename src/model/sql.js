@@ -1,5 +1,5 @@
-'use strict';
-const db = require('../../lib/sqlite3').connect();
+
+const db = require('../lib/sql').connect();
 
 class SQL {
 

@@ -1,6 +1,5 @@
-'use strict'
-
-module.exports = function (err, req, res, next) {
+/* eslint no-console: "off" */
+module.exports = function (err, req, res) {
 	console.log('error', err.stack);
 	let code = err.status || 500;
 	res.status(code);

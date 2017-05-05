@@ -1,4 +1,3 @@
-'use strict'
 
 class AmkError extends Error {
 

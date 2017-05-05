@@ -1,5 +1,3 @@
-'use strict'
-
 let userService;
 let user;
 
@@ -10,14 +8,14 @@ class UserController {
 		user = User;
 	}
 
-	* get(req, res) {
-		let data = yield user.find();
+	async get(req, res) {
+		let data = await user.find();
 		res.json(data);
 	}
 
-	* insert(req, res) {
+	async insert(req, res) {
 		let body = req.body;
-		let rs = yield user.insert({
+		let rs = await user.insert({
 			username: body.username,
 			password: body.password,
 			salt: body.salt

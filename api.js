@@ -1,4 +1,5 @@
-'use strict';
+/* eslint no-global-assign: "off", no-console: "off" */
+
 Promise = require('bluebird');
 const express = require('express');
 const bodyParser = require('body-parser');
