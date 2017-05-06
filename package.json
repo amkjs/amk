@@ -25,9 +25,11 @@
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "lodash": "^4.17.4",
-    "moment": "^2.18.1"
+    "moment": "^2.18.1",
+    "mongodb": "^2.2.26"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
     "istanbul": "^0.4.5",
     "mocha": "^3.3.0",
     "sinon": "^2.2.0"

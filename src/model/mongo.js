@@ -22,6 +22,12 @@ class Mongo {
 		});
 	}
 
+	findById(id) {
+		return this.load().then((db) => {
+			return db.find({_id: ObjectID(id)}).limit(1).next();
+		});
+	}
+
 	find(param) {
 		return this.load().then((db) => {
 			return db.find(param).limit(LIMIT).toArray();
@@ -57,6 +63,12 @@ class Mongo {
             return db.updateMany(filter, update, options);
         })
     }
+
+	deleteById(id) {
+		return this.load().then((db) => {
+            return db.deleteOne({_id: ObjectID(id)});
+        })
+	}
 
     deleteOne(filter, options) {
         return this.load().then((db) => {

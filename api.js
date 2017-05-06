@@ -8,22 +8,22 @@ const jsonParser = bodyParser.json();
 const app = express();
 
 // models
-const User = require('./app/model/user');
+const User = require('./src/model/user');
 
 // services
-const UserService = require('./app/service/user_service');
+const UserService = require('./src/service/user_service');
 
 // validators
-const UserValidator = require('./app/validator/user_validator');
+const UserValidator = require('./src/validator/user_validator');
 
 //controllers
-const UserController = require('./app/controller/user_controller');
+const UserController = require('./src/controller/user_controller');
 
 // middleswares
-const errorHandler = require('./app/middleware/error_handler');
+const errorHandler = require('./src/middleware/error_handler');
 
 // routes
-const userRoute = require('./route/user_route');
+const userRoute = require('./src/route/user_route');
 
 //instantiate models
 const user = new User();
@@ -37,10 +37,7 @@ const userValidator = new UserValidator();
 // instantiate controllers
 const userController = new UserController(userService, user);
 
-// init routes
-userRoute.init(jsonParser, userValidator, userController);
-
-app.use('/users', userRoute.route);
+app.use('/users', userRoute(jsonParser, userValidator, userController));
 
 app.use(errorHandler);
 

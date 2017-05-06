@@ -1,11 +1,11 @@
 
-// const SQL = require('./sql');
+const Mongo = require('./mongo');
 
-class User /*extends SQL*/{
-	/*
+class User extends Mongo {
+
 	constructor() {
 		super('user');
 	}
-	*/
+	
 }
 module.exports = User;

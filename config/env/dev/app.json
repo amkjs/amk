@@ -1,23 +1,19 @@
 {
-	"db": {
-		"host": "172.16.1.11",
+	"sql": {
+		"host": "192.168.99.100",
 		"user": "root",
 		"password": "asdf1234",
-		"database": "db_cms",
+		"database": "amk",
 		"driver": "mysql"
 	},
 	"mongo": {
-		"hosts": ["172.16.1.11:27017"],
-		"database": "cms"
+		"hosts": ["192.168.99.100:27017"],
+		"database": "amk"
 	},
 	"redis": {
 		"port": 6379,
 		"host": "localhost",
 		"family": 4,
 		"db": 0
-	},
-	"secret": "Great minds think alike",
-	"viewer": {
-		"confirm": false
 	}
 }

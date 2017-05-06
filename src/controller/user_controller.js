@@ -1,3 +1,4 @@
+
 let userService;
 let user;
 
@@ -8,22 +9,30 @@ class UserController {
 		user = User;
 	}
 
-	async get(req, res) {
-		let data = await user.find();
+	async read(req, res) {
+		let query = req.params;
+		let id = query.id;
+		let data = await (id ? user.findById(id) : user.find());
 		res.json(data);
 	}
 
-	async insert(req, res) {
+	async create(req, res) {
 		let body = req.body;
-		let rs = await user.insert({
+		await user.insertOne({
 			username: body.username,
-			password: body.password,
-			salt: body.salt
+			description: body.description
 		});
+		res.status(201).end();
+	}
 
-		if (rs.length > 0) {
-			res.json(201);
-		}
+	async update(req, res) {
+
+	}
+
+	async del (req, res) {
+		let params = req.params;
+		await user.deleteById(params.id)
+		res.status(200).end();
 	}
 
 }
