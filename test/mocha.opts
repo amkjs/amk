@@ -1,4 +1,4 @@
 test/**/*.js
---reporter mocha-bamboo-reporter
+--reporter spec
 --reporter-options output=mocha.json
 --check-leaks

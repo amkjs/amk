@@ -19,7 +19,6 @@ reporting:
     print: summary
     reports:
         - lcov
-        - clover
     dir: ./coverage
     watermarks:
         statements: [50, 80]
