@@ -2,22 +2,27 @@
 
 const _ = require('lodash');
 let appRoute = './env/';
+let env;
 
 switch (process.env.NODE_ENV) {
 	case 'production': {
-		appRoute += 'production';
+		env = 'prod';
+		break;
+	}
+	case 'ci': {
+		env += 'ci';
 		break;
 	}
 	case 'docker': {
-		appRoute += 'docker';
+		env += 'docker';
 		break;
 	}
 	default: {
-		appRoute += 'dev';
+		env += 'dev';
 		break;
 	}
 }
-appRoute += '/app.json'
+appRoute += env + '/app.json'
 
 const app = require(appRoute);
 
