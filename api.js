@@ -19,7 +19,7 @@ const UserValidator = require('./src/validator/user_validator');
 //controllers
 const UserController = require('./src/controller/user_controller');
 
-// middleswares
+// middlewares
 const errorHandler = require('./src/middleware/error_handler');
 
 // routes
