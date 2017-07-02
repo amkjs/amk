@@ -29,6 +29,7 @@ class HelloController {
 
 		if(msg) {
 			let uuid = await random();
+			helloService.log(uuid, msg);
 			await hello.insert(uuid, msg);
 			res.json({
 				id: uuid
