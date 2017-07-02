@@ -8,36 +8,36 @@ const jsonParser = bodyParser.json();
 const app = express();
 
 // models
-const User = require('./src/model/user');
+const Hello = require('./src/model/hello');
 
 // services
-const UserService = require('./src/service/user_service');
+const HelloService = require('./src/service/hello_service');
 
 // validators
-const UserValidator = require('./src/validator/user_validator');
+const HelloValidator = require('./src/validator/hello_validator');
 
 //controllers
-const UserController = require('./src/controller/user_controller');
+const HelloController = require('./src/controller/hello_controller');
 
 // middlewares
 const errorHandler = require('./src/middleware/error_handler');
 
 // routes
-const userRoute = require('./src/route/user_route');
+const helloRoute = require('./src/route/hello_route');
 
 //instantiate models
-const user = new User();
+const hello = new Hello();
 
 // instantiate service
-const userService = new UserService();
+const helloService = new HelloService();
 
 // instantiate validators
-const userValidator = new UserValidator();
+const helloValidator = new HelloValidator();
 
 // instantiate controllers
-const userController = new UserController(userService, user);
+const helloController = new HelloController(helloService,  hello);
 
-app.use('/users', userRoute(jsonParser, userValidator, userController));
+app.use('/hellos', helloRoute(jsonParser, helloValidator, helloController));
 
 app.use(errorHandler);
 

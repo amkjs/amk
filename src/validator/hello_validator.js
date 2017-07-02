@@ -1,7 +1,7 @@
 
 const AmkError = require('../lib/amk_error');
 
-class UserValidator {
+class HelloValidator {
 
 	insert(req, res, next) {
 		let body = req.body;
@@ -18,7 +18,7 @@ class UserValidator {
 
 		next(errObj);
 	}
-	
+
 	del(req, res, next) {
 		let body = req.body;
 		let err = [];
@@ -36,4 +36,4 @@ class UserValidator {
 
 }
 
-module.exports = UserValidator;
+module.exports = HelloValidator;
