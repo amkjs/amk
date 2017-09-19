@@ -1,7 +1,7 @@
 
 const express = require('express');
 const router = express.Router();
-const wrap = require('../lib/wrapper');
+const wrap = require('amk-wrap');
 
 module.exports = function (jsonParser, helloValidator, helloController) {
 	router.get('/:id', wrap(helloController.get));
