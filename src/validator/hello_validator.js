@@ -1,5 +1,5 @@
 
-const AmkError = require('../lib/amk_error');
+const ErrorObject = require('amk-error');
 
 class HelloValidator {
 
@@ -13,7 +13,7 @@ class HelloValidator {
 		}
 
 		if (err.length > 0) {
-			errObj = new AmkError(err, 400);
+			errObj = new ErrorObject(err, 400);
 		}
 
 		next(errObj);

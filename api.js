@@ -3,6 +3,7 @@
 Promise = require('bluebird');
 const express = require('express');
 const bodyParser = require('body-parser');
+const errorHandler = require('api-error-handler');
 const jsonParser = bodyParser.json();
 
 const app = express();
@@ -20,7 +21,7 @@ const HelloValidator = require('./src/validator/hello_validator');
 const HelloController = require('./src/controller/hello_controller');
 
 // middlewares
-const errorHandler = require('./src/middleware/error_handler');
+
 
 // routes
 const helloRoute = require('./src/route/hello_route');
@@ -39,7 +40,7 @@ const helloController = new HelloController(helloService,  hello);
 
 app.use('/hellos', helloRoute(jsonParser, helloValidator, helloController));
 
-app.use(errorHandler);
+app.use(errorHandler());
 
 app.listen(3000, function(){
 	console.log('running');

@@ -1,5 +1,5 @@
 
-const AmkError = require('../lib/amk_error');
+const ErrorObject = require('amk_error');
 const random = require('../lib/random');
 
 let helloService;
@@ -19,7 +19,7 @@ class HelloController {
 				msg: value
 			});
 		} else {
-			throw new AmkError('not found', 404);
+			throw new ErrorObject('not found', 404);
 		}
 	}
 
