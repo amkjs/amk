@@ -1,6 +1,5 @@
 
-const ErrorObject = require('amk_error');
-const random = require('../lib/random');
+const ErrorObject = require('amk-error');
 
 let helloService;
 let hello;
@@ -20,22 +19,19 @@ class HelloController {
 
 	async create(req, res) {
 		let body = req.body;
-		let msg = body.msg;
+		let message = body.message;
 
-		if(msg) {
-			let uuid = await random();
-			helloService.log(uuid, msg);
-			await hello.insert(uuid, msg);
+		if(message) {
+			let uuid = await helloService.getId();
+			helloService.log(uuid, message);
+			hello.insert(uuid, message);
 			res.json({
 				id: uuid
 			});
+		} else {
+			throw new ErrorObject('no input', 400);
 		}
 	}
 
-	async del(req, res) {
-		let params = req.params
-		await hello.del(params.id);
-		res.status(200).send('ok');
-	}
 }
 module.exports = HelloController;

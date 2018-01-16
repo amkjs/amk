@@ -22,7 +22,7 @@ const HelloController = require('./src/controller/hello_controller');
 
 
 // routes
-const helloRouter = require('./src/route/hello_route');
+const helloRouter = require('./src/router/hello_router');
 
 //instantiate models
 const hello = new Hello();

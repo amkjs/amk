@@ -5,6 +5,10 @@ class Hello {
 		return 'hello world';
 	}
 
+	insert() {
+		console.log('adding the message');
+	}
+
 }
 
 module.exports = Hello;

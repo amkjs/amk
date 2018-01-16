@@ -8,8 +8,8 @@ class HelloValidator {
 
 		let err = [];
 		let errObj;
-		if (!body.msg) {
-			err.push('no message');
+		if (!body.message) {
+			err.push('no message field');
 		}
 
 		if (err.length > 0) {
