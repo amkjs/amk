@@ -1,10 +1,8 @@
-/* eslint no-global-assign: "off", no-console: "off" */
+/* no-console: "off" */
 
-Promise = require('bluebird');
 const express = require('express');
-const bodyParser = require('body-parser');
+const responseTime = require('response-time');
 const errorHandler = require('api-error-handler');
-const jsonParser = bodyParser.json();
 
 const app = express();
 
@@ -24,7 +22,7 @@ const HelloController = require('./src/controller/hello_controller');
 
 
 // routes
-const helloRoute = require('./src/route/hello_route');
+const helloRouter = require('./src/route/hello_route');
 
 //instantiate models
 const hello = new Hello();
@@ -38,8 +36,8 @@ const helloValidator = new HelloValidator();
 // instantiate controllers
 const helloController = new HelloController(helloService,  hello);
 
-app.use('/hellos', helloRoute(jsonParser, helloValidator, helloController));
-
+app.use(responseTime());
+app.use('/hellos', helloRouter(helloValidator, helloController));
 app.use(errorHandler());
 
 app.listen(3000, function(){

@@ -12,15 +12,10 @@ class HelloController {
 	}
 
 	async get(req, res) {
-		let params = req.params
-		let value = await hello.find(params.id);
-		if (value) {
-			res.json({
-				msg: value
-			});
-		} else {
-			throw new ErrorObject('not found', 404);
-		}
+		let value = await hello.get();
+		return res.json({
+			message: value
+		});
 	}
 
 	async create(req, res) {

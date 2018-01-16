@@ -1,10 +1,8 @@
 
-const Redis = require('./parent/redis');
+class Hello {
 
-class Hello extends Redis{
-
-	constructor() {
-		super('hello');
+	get() {
+		return 'hello world';
 	}
 
 }

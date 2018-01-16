@@ -3,9 +3,11 @@ const express = require('express');
 const router = express.Router();
 const wrap = require('amk-wrap');
 
-module.exports = function (jsonParser, helloValidator, helloController) {
-	router.get('/:id', wrap(helloController.get));
+const jsonParser = express.json();
+
+module.exports = function (helloValidator, helloController) {
 	router.get('/', wrap(helloController.get));
+	router.get('/test', wrap(helloController.test));
 	router.post('/', jsonParser, helloValidator.insert, wrap(helloController.create))
 	router.delete('/:id', wrap(helloController.del))
 	return router;
