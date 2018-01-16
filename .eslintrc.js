@@ -1,11 +1,8 @@
 module.exports = {
     extends: 'eslint:recommended',
     parserOptions: {
-        ecmaVersion: 2017,
-		sourceType: "module",
-        ecmaFeatures: {
-            jsx: true
-        }
+        ecmaVersion: 8,
+		sourceType: "module"
     },
     rules: {
         'global-require': 2,
@@ -27,6 +24,7 @@ module.exports = {
     },
     env: {
         node: true,
-		mocha: true
+		mocha: true,
+		es6: true
     }
 }
