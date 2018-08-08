@@ -1,7 +1,7 @@
 # AMK
 
-Amk is a no frills opinionated express api server seed.
-it lets you skip all the tediuos process of thinking how to deal with folder structures, just donwload and then use
+AMK is a no frills plugin based framework for express.
+it lets you skip all the tedious process of thinking how to deal with folder structures, just download and then use
 
 ## How to use:
 1. clone this repository

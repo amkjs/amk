@@ -5,37 +5,37 @@
   "main": "api.js",
   "scripts": {
     "start": "node api.js",
-    "test": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha"
+    "test": "./node_modules/.bin/nyc ./node_modules/mocha/bin/_mocha"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/heinrich10/amk.git"
+    "url": "git@github.com:amkjs/amk.git"
   },
   "keywords": [
-    "express",
-    "co"
+    "express-js",
+    "api",
+    "async-await",
+    "amkjs"
   ],
   "author": "heinrich10",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/heinrich10/amk/issues"
+    "url": "https://github.com/amkjs/amk/issues"
   },
-  "homepage": "https://github.com/heinrich10/amk#readme",
+  "homepage": "https://github.com/amkjs/amk",
   "dependencies": {
     "amk-error": "^0.1.0",
     "amk-wrap": "^0.1.0",
     "api-error-handler": "^1.0.0",
-    "body-parser": "^1.18.2",
-    "express": "^4.16.2",
-    "lodash": "^4.17.4",
-    "moment": "^2.20.1",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "lodash": "^4.17.10",
     "response-time": "^2.3.2"
   },
   "devDependencies": {
     "chai": "^4.1.2",
-    "istanbul": "^0.4.5",
-    "mocha": "^3.5.3",
-    "nyc": "^11.4.1",
-    "sinon": "^2.4.1"
+    "mocha": "^5.2.0",
+    "nyc": "^12.0.2",
+    "sinon": "^6.1.4"
   }
 }
