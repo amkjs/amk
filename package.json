@@ -29,7 +29,7 @@
     "api-error-handler": "^1.0.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
-    "lodash": "^4.17.10",
+    "lodash": "^4.17.11",
     "response-time": "^2.3.2"
   },
   "devDependencies": {
