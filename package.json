@@ -28,7 +28,7 @@
     "amk-wrap": "^0.1.0",
     "api-error-handler": "^1.0.0",
     "body-parser": "^1.18.3",
-    "express": "^4.16.3",
+    "express": "^4.17.3",
     "lodash": "^4.17.11",
     "response-time": "^2.3.2"
   },
