@@ -27,15 +27,14 @@
     "amk-error": "^0.1.0",
     "amk-wrap": "^0.1.0",
     "api-error-handler": "^1.0.0",
-    "body-parser": "^1.18.3",
-    "express": "^4.16.3",
-    "lodash": "^4.17.11",
+    "express": "^4.18.3",
+    "lodash": "^4.17.21",
     "response-time": "^2.3.2"
   },
   "devDependencies": {
-    "chai": "^4.1.2",
-    "mocha": "^5.2.0",
-    "nyc": "^12.0.2",
-    "sinon": "^6.1.4"
+    "chai": "^5.1.0",
+    "mocha": "^10.3.0",
+    "nyc": "^15.1.0",
+    "sinon": "^17.0.1"
   }
 }
