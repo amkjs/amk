@@ -1,24 +1,24 @@
 # AMK
 
-AMK is a no frills plugin based framework for express.
-it lets you skip all the tedious process of thinking how to deal with folder structures, just download and then use
+sample backend using express.js, knex.js, and amk plugins
 
-## Usage:
-1. clone this repository
-2. copy this to a different folder
-3. write your code
+## Pre-requisites:
+- node.js
 
-## Elements
-- controller
-- model
-- lib
-- middleware
-- service
-- validator
-- routes
+## How to run
+1. install dependencies `npm install`
+2. copy `.env.example` to `.env` and update the values'
+3. run the app `npm start`
+4. call the api endpoint `curll http://localhost:3000/persons`
+
+## Initialize DB and seed data
+1. run `npm run migrate`
+2. run `npm run seed`
+3. refer to `knexfile.js` for other configuration
 
 ## Tests
-- test/index.js
+1. make sure dependencies are installed
+2. run `npm test`
 
 ## License
 [Apache-2.0](http://www.apache.org/licenses/LICENSE-2.0)
