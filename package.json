@@ -4,7 +4,7 @@
   "description": "no frills API server using express",
   "main": "api.js",
   "scripts": {
-    "start": "node api.js",
+    "start": "node app.js",
     "test": "./node_modules/.bin/nyc ./node_modules/mocha/bin/_mocha"
   },
   "repository": {
@@ -24,12 +24,17 @@
   },
   "homepage": "https://github.com/amkjs/amk",
   "dependencies": {
+    "ajv": "^8.12.0",
     "amk-error": "^0.1.0",
-    "amk-wrap": "^0.1.0",
+    "amk-wrap": "^0.2.0",
     "api-error-handler": "^1.0.0",
+    "dotenv": "^16.4.5",
     "express": "^4.18.3",
+    "knex": "^3.1.0",
     "lodash": "^4.17.21",
-    "response-time": "^2.3.2"
+    "objection": "^3.1.4",
+    "response-time": "^2.3.2",
+    "sqlite3": "^5.1.7"
   },
   "devDependencies": {
     "chai": "^5.1.0",
