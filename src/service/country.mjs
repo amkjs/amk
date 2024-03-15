@@ -1,5 +1,5 @@
 
-export const extractQueryParams = (req) => {
+export const extractQueryParams = (query = {}) => {
   const {
     name,
     phone,
@@ -8,7 +8,7 @@ export const extractQueryParams = (req) => {
     currency,
     continent_code,
     alpha_3
-  } = req.query;
+  } = query;
 
   return {
     name,
@@ -18,12 +18,13 @@ export const extractQueryParams = (req) => {
     currency,
     continent_code,
     alpha_3
-  }
+  };
 }
 
-export const extractSort = (req) => {
-  const { sort } = req.query;
-  const firstChar = sort[0]
+export const extractSort = (query = {}) => {
+  const { sort } = query;
+  if (!sort) return null;
+  const firstChar = sort[0];
   const sortKey = firstChar in ['+', '-'] ? sort.slice(1) : sort;
 
   const validKeys = ['name', 'phone', 'symbol', 'capital', 'currency', 'continent_code', 'alpha_3'];
@@ -41,10 +42,18 @@ export const extractSort = (req) => {
   }
 }
 
-export const extractPagination = (req) => {
-  const { page, limit } = req.query;
+export const extractPagination = (query = {}) => {
+  const { offset, limit } = query;
   return {
-    offset: page || 1,
-    limit: limit || 10
+    offset: +offset || 0,
+    limit: +limit || 10
   }
+}
+
+export const extract = (query) => {
+  return [
+    extractQueryParams(query),
+    extractSort(query),
+    extractPagination(query)
+  ]
 }

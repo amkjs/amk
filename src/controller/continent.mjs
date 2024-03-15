@@ -11,6 +11,6 @@ export class ContinentController {
   async getOneContinent(req, res) {
     const { code } = req.params;
     const rs = await this.continent.getByCode(code);
-    res.json(rs);
+    res.json(rs || {});
   }
 }

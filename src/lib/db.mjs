@@ -6,5 +6,6 @@ export const db = knex({
   client: 'sqlite3',
   connection: {
     filename: Config.DB
-  }
+  },
+  useNullAsDefault: true,
 });
