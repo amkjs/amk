@@ -1,7 +1,5 @@
-import fp from 'lodash/fp.js'
-import { extract } from '../service/country.mjs';
+import { extract } from '../utils/query.mjs';
 
-// const { compose } = fp;
 export class CountryController {
   constructor({ country }) {
     this.country = country;
@@ -15,7 +13,8 @@ export class CountryController {
 
   async getAll(req, res) {
     const { query } = req;
-    const [q, sort, pagination] = extract(query)
+    const validKeys = ['name', 'phone', 'symbol', 'capital', 'currency', 'continent_code', 'alpha_3'];
+    const [q, sort, pagination] = extract(query, validKeys);
     const country = await this.country.get({ q, sort, pagination });
     res.json(country);
   }

@@ -12,13 +12,11 @@ const seedConfig = {
 }
 
 export const up = async () => {
-  console.log('up');
   await db.migrate.latest(migrationsConfig);
   await db.seed.run(seedConfig);
 }
 
 export const down = async () => {
-  console.log('down')
   await db.migrate.rollback(migrationsConfig, true);
 }
 

@@ -5,7 +5,7 @@
   "main": "api.js",
   "scripts": {
     "start": "node app.js",
-    "test": "nyc mocha"
+    "test": "c8 mocha"
   },
   "repository": {
     "type": "git",
@@ -36,9 +36,9 @@
     "sqlite3": "^5.1.7"
   },
   "devDependencies": {
+    "c8": "^9.1.0",
     "chai": "^5.1.0",
     "mocha": "^10.3.0",
-    "nyc": "^15.1.0",
     "sinon": "^17.0.1",
     "supertest": "^6.3.4"
   }

@@ -1,23 +1,8 @@
-import _ from 'lodash';
+import fp from 'lodash/fp.js'
 import { BaseModel } from './base.mjs';
+import { applySort, applyFilter, applyPagination } from '../utils/query.mjs';
 
-const { keys, map } = _;
-
-const applyFilter = (q, db) => {
-  const db_ = db;
-  keys(q).map((key) => {
-    if (q[key]) db_.where(key, q[key]);
-  });
-  return db_;
-}
-
-const applySort = (sort, db) => {
-
-}
-
-const applyPagination = (pagination, db) => {
-
-}
+const { compose } = fp;
 
 /*
   * This class is responsible for handling the business logic of the country entity.
@@ -38,23 +23,9 @@ export class Country extends BaseModel {
   }
 
   async get({ q = {}, sort = {}, pagination = {} }) {
-    console.log('q', q)
-    console.log('sort', sort)
-    console.log('pagination', pagination)
-    console.log(applyFilter(q, this.getDB()).toString())
     const { limit, offset } = pagination;
-    const { key, order } = sort;
-    const qs = this.getDB();
-    if (sort) {
-      qs.orderBy(sort.key, sort.order);
-    }
-    if (limit) {
-      qs.limit(limit)
-    }
-    if (offset) {
-      qs.offset(offset);
-    }
-
+    const f = compose(applySort(sort), applyPagination(pagination), applyFilter(q));
+    const qs = f(this.getDB());
     const [total, rs] = await Promise.all([
       this.getCount(q),
       qs.select(
@@ -82,9 +53,9 @@ export class Country extends BaseModel {
       .where({ 'countries.code': code })
       .select(
         'countries.*', 'continents.name as continent_name', 'continents.code as continent_code'
-      ).first();
+      ).first() || {};
     
-    return {
+    const res = {
       code: rs.code,
       name: rs.name,
       phone: rs.phone,
@@ -92,10 +63,14 @@ export class Country extends BaseModel {
       capital: rs.capital,
       currency: rs.currency,
       alpha_3: rs.alpha_3,
-      continent: {
+    }
+
+    if (rs.continent_name || rs.continent_code) {
+      res.continent = {
         code: rs.continent_code,
         name: rs.continent_name,
-      },
+      }
     }
+    return res;
   }
 }
