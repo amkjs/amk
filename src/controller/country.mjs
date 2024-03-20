@@ -1,4 +1,4 @@
-import {extractSort, extractQueryParams, extractPagination } from '../service/country.mjs';
+import { extract } from '../utils/query.mjs';
 
 export class CountryController {
   constructor({ country }) {
@@ -7,14 +7,14 @@ export class CountryController {
 
   async getCountry(req, res) {
     const { code } = req.params;
-    const country = await this.country.getCountry(code);
+    const country = await this.country.getByCode(code);
     res.json(country);
   }
 
   async getAll(req, res) {
-    const q = extractQueryParams(req);
-    const sort = extractSort(req);
-    const pagination = extractPagination(req);
+    const { query } = req;
+    const validKeys = ['name', 'phone', 'symbol', 'capital', 'currency', 'continent_code', 'alpha_3'];
+    const [q, sort, pagination] = extract(query, validKeys);
     const country = await this.country.get({ q, sort, pagination });
     res.json(country);
   }

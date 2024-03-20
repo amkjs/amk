@@ -1,15 +1,24 @@
-import { db } from '../lib/db.mjs';
+import { BaseModel } from './base.mjs';
 
-export class Continent {
+/*
+  * This class is responsible for handling the business logic of the continent entity.
+  * fields:
+  * code: string
+  * name: string
+ */
+export class Continent extends BaseModel {
   constructor() {
-    this.dbName = 'continents';
+    super('continents');
   }
 
   async get() {
-    return db(this.dbName).select();
+    return this.getDB().select('code', 'name');
   }
 
   async getByCode(code) {
-    return db(this.dbName).where({ code }).first();
+    return this.getDB()
+      .where({ code })
+      .select('code', 'name')
+      .first();
   }
 }

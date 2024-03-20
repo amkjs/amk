@@ -28,7 +28,7 @@ exports.up = function(knex) {
  * @returns { Promise<void> }
  */
 exports.down = function(knex) {
-  knex.schema.dropTable('persons');
-  knex.schema.dropTable('countries');
-  knex.schema.dropTable('continents');
+  return knex.schema.dropTable('persons')
+    .dropTable('countries')
+    .dropTable('continents');
 };

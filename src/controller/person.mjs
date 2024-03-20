@@ -1,11 +1,15 @@
 import { ajv } from '../lib/ajv.mjs';
+import { extract } from '../utils/query.mjs';
 export class PersonController {
   constructor({ person }) {
     this.person = person;
   }
 
   async getAll(req, res) {
-    const person = await this.person.get();
+    const { query } = req;
+    const validKey = ['first_name', 'last_name', 'country_code'];
+    const [q, sort, pagination] = extract(query, validKey);
+    const person = await this.person.get({ q, sort, pagination });
     res.json(person);
   }
 
