@@ -153,7 +153,7 @@ describe('/persons API test', () => {
       expect(body).toHaveProperty('message', 'Validation failed');
       expect(body).toHaveProperty('errors');
       expect(body.errors).toBeInstanceOf(Array);
-      expect(body.errors.length).toBeGreaterThan(0);
+      expect(body.errors?.length).toBeGreaterThan(0);
     });
     it('Should return 400 with validation errors for empty body', async () => {
       const res = await request(app)
