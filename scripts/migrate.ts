@@ -18,7 +18,7 @@ const migrator = new Migrator({
 const command = process.argv[2] || 'latest';
 
 async function run() {
-  let error: Error | undefined;
+  let error: unknown;
   let results: unknown;
 
   if (command === 'latest' || command === 'up') {

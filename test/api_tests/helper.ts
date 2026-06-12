@@ -1,7 +1,7 @@
 import { expect } from 'expect';
 
 export const paginationHelper = async ({ client, path, params }: {
-  client: { get: (path: string) => { query: (params: Record<string, unknown>) => Promise<{ body: Record<string, unknown>; status: number }> } };
+  client: { get: (path: string) => { query: (params: Record<string, unknown>) => Promise<{ body: unknown; status: number }> } };
   path: string;
   params: Record<string, unknown>;
 }) => {
